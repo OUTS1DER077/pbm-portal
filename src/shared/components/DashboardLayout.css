@@ -1,0 +1,27 @@
+.dashboard-layout {
+  min-height: 100vh;
+}
+
+.dashboard-content {
+  margin-left: var(--sidebar-width);
+  margin-top: var(--topbar-height);
+  padding: 24px;
+  min-height: calc(100vh - var(--topbar-height));
+  transition: margin-left var(--transition-slow);
+}
+
+.sidebar-collapsed .dashboard-content {
+  margin-left: var(--sidebar-collapsed);
+}
+
+.sidebar-collapsed .topbar {
+  left: var(--sidebar-collapsed);
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    margin-left: 0;
+    padding: 16px;
+    padding-bottom: 80px; /* Space for BottomNav */
+  }
+}

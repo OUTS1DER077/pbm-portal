@@ -1,0 +1,108 @@
+.topbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: var(--sidebar-width);
+  height: var(--topbar-height);
+  background: var(--clr-bg-primary); /* Blend in with the main background */
+  border-bottom: none; /* No border for cleaner look */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  z-index: 50;
+  transition: left 0.3s ease;
+}
+
+.topbar.sidebar-collapsed {
+  left: var(--sidebar-collapsed);
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar-menu-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  color: var(--clr-text-muted);
+  background: var(--clr-bg-secondary);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.topbar-menu-btn:hover {
+  color: var(--clr-text-main);
+  box-shadow: var(--shadow-md);
+}
+
+.topbar-greeting {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.topbar-salam {
+  font-size: var(--fs-caption);
+  color: var(--clr-text-muted);
+}
+
+.topbar-name {
+  font-size: var(--fs-subheading);
+  font-weight: 800;
+  color: var(--clr-primary-dark);
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--clr-primary-bg);
+  border: 2px solid #fff;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-primary);
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    left: 0;
+    padding: 0 16px;
+  }
+
+  .topbar-menu-btn {
+    display: none; /* Hide since we use BottomNav now */
+  }
+}
+
+.topbar-logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  color: var(--clr-text-muted);
+  background: var(--clr-bg-secondary);
+  transition: all 0.2s ease;
+  margin-left: 8px;
+}
+
+.topbar-logout-btn:hover {
+  color: var(--clr-danger);
+  background: var(--clr-danger-bg);
+}

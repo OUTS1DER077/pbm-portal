@@ -1,0 +1,64 @@
+.mahasiswa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.mahasiswa-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mahasiswa-card-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mahasiswa-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.mahasiswa-name {
+  font-weight: 800;
+  font-size: var(--fs-subheading);
+  color: var(--clr-text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mahasiswa-nim {
+  font-size: var(--fs-caption);
+  color: var(--clr-text-muted);
+  margin-top: 2px;
+}
+
+.avatar-circle {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 50%;
+  background: var(--clr-primary-bg);
+  color: var(--clr-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-subheading);
+  font-weight: 800;
+}
+
+.card-btn-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .mahasiswa-grid {
+    grid-template-columns: 1fr;
+  }
+}

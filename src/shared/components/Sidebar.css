@@ -1,0 +1,156 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--clr-bg-secondary);
+  border-right: 1px solid rgba(0,0,0,0.05); /* Border sangat tipis */
+  box-shadow: 4px 0 24px rgba(0,0,0,0.02); /* Bayangan lembut */
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar.collapsed {
+  width: var(--sidebar-collapsed);
+}
+
+/* Logo */
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  height: var(--topbar-height);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.sidebar-logo-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 12px;
+  background: var(--clr-primary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-primary);
+}
+
+.sidebar-logo-text {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sidebar-logo-title {
+  font-size: var(--fs-subheading);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--clr-primary-dark);
+}
+
+.sidebar-logo-sub {
+  font-size: var(--fs-micro);
+  color: var(--clr-text-muted);
+  line-height: 1.2;
+}
+
+.sidebar-toggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--clr-text-muted);
+  transition: all 0.2s ease;
+}
+
+.sidebar-toggle:hover {
+  background: var(--clr-bg-tertiary);
+  color: var(--clr-text-main);
+}
+
+/* Nav */
+.sidebar-nav {
+  flex: 1;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-pill); /* Menu berbentuk pil */
+  color: var(--clr-text-muted);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  transition: all 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar-link:hover {
+  color: var(--clr-text-main);
+  background: var(--clr-bg-tertiary);
+}
+
+.sidebar-link.active {
+  color: var(--clr-primary-dark);
+  background: var(--clr-primary-bg);
+}
+
+/* Hilangkan garis hijau di kiri pada light mode, karena background sudah cukup kontras */
+.sidebar-link.active::before {
+  display: none;
+}
+
+/* Footer */
+.sidebar-footer {
+  padding: 12px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.logout-btn {
+  color: var(--clr-text-muted) !important;
+}
+
+.logout-btn:hover {
+  color: var(--clr-danger) !important;
+  background: var(--clr-danger-bg) !important;
+}
+
+/* Overlay for mobile */
+.sidebar-overlay {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none; /* Hide on mobile to use BottomNav */
+  }
+
+  .sidebar-overlay {
+    display: none;
+  }
+}

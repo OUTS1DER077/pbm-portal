@@ -1,0 +1,146 @@
+.mentor-list-section {
+  margin-top: 24px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: var(--fs-subheading);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--clr-text-main);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--clr-bg-primary);
+  border: 1px solid var(--clr-bg-tertiary);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  color: var(--clr-text-muted);
+}
+
+.search-input {
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--clr-text-main);
+  font-size: var(--fs-body);
+  width: 200px;
+}
+
+.search-input::placeholder {
+  color: var(--clr-text-light);
+}
+
+@media (max-width: 600px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .header-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items:stretch;
+  }
+  .search-input {
+    width: 100%;
+  }
+}
+
+/* Table */
+.mentor-table-card {
+  overflow: hidden;
+  background: var(--clr-bg-secondary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 16px 20px;
+  font-size: var(--fs-micro);
+  font-weight: 700;
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--clr-bg-tertiary);
+  background: #FAFAF9; /* Slightly off-white for header */
+}
+
+.data-table td {
+  padding: 16px 20px;
+  font-size: var(--fs-body);
+  border-bottom: 1px solid var(--clr-bg-tertiary);
+  color: var(--clr-text-main);
+}
+
+.data-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.data-table tbody tr:hover {
+  background: var(--clr-bg-primary); /* Latar sangat terang saat hover */
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.td-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+}
+
+.td-email {
+  color: var(--clr-text-muted);
+}
+
+.td-date {
+  color: var(--clr-text-light);
+  font-size: var(--fs-caption);
+}
+
+.avatar-circle {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background: var(--clr-primary-bg);
+  color: var(--clr-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-caption);
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .data-table th:nth-child(3),
+  .data-table td:nth-child(3) {
+    display: none;
+  }
+}

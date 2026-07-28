@@ -1,0 +1,216 @@
+.mahasiswa-detail-page {
+  padding-bottom: 40px;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.profile-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar-lg {
+  width: 64px;
+  height: 64px;
+  font-size: 24px;
+}
+
+.student-name {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0;
+  color: var(--clr-text-main);
+}
+
+.student-nim {
+  margin: 4px 0 0 0;
+  color: var(--clr-text-muted);
+  font-size: var(--fs-body);
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-body);
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+
+.card-subtitle {
+  margin: 0 0 20px 0;
+  color: var(--clr-text-light);
+  font-size: var(--fs-caption);
+}
+
+/* Attendance */
+.attendance-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.att-btn {
+  padding: 12px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.1s;
+  color: white;
+}
+
+.att-btn:active {
+  transform: scale(0.95);
+}
+
+.btn-hadir { background: #10B981; }
+.btn-izin { background: #3B82F6; }
+.btn-sakit { background: #F59E0B; }
+.btn-alpa { background: #EF4444; }
+
+.attendance-stats {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--clr-bg-tertiary);
+  padding-top: 16px;
+}
+
+.att-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--fs-caption);
+  color: var(--clr-text-muted);
+}
+
+.stat-num {
+  font-size: 20px;
+  font-weight: 800;
+}
+.stat-num.hadir { color: #10B981; }
+.stat-num.izin { color: #3B82F6; }
+.stat-num.sakit { color: #F59E0B; }
+.stat-num.alpa { color: #EF4444; }
+
+/* Chart */
+.chart-card {
+  padding: 24px;
+}
+
+.chart-wrapper {
+  margin-top: 24px;
+}
+
+.empty-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  color: var(--clr-text-light);
+  background: var(--clr-bg-primary);
+  border-radius: var(--radius-md);
+  margin-top: 24px;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--clr-bg-primary); 
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--clr-bg-tertiary); 
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-text-light); 
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--clr-bg-tertiary);
+  padding-bottom: 2px;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--clr-text-muted);
+  font-weight: 700;
+  font-size: var(--fs-body);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: -4px; /* overlap border */
+}
+
+.tab-btn:hover {
+  color: var(--clr-text-main);
+  background: var(--clr-bg-primary);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.tab-btn.active {
+  color: var(--clr-primary);
+  border-bottom-color: var(--clr-primary);
+}
+
+.tab-pane {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 2-Column Layout for Attendance */
+.attendance-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.attendance-action-card, 
+.attendance-history-card {
+  padding: 24px;
+}
+
+@media (max-width: 900px) {
+  .attendance-layout {
+    grid-template-columns: 1fr;
+  }
+}

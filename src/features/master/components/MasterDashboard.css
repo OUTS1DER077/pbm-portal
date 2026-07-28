@@ -1,0 +1,7 @@
+.master-dashboard .page-title,
+.mentor-dashboard .page-title,
+.mahasiswa-dashboard .page-title {
+  font-size: var(--fs-heading);
+  font-weight: 700;
+  margin-bottom: 24px;
+}

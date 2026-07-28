@@ -1,0 +1,40 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isMaster() {
+      return isAuthenticated() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'master';
+    }
+
+    function isMentor() {
+      return isAuthenticated() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'mentor';
+    }
+
+    // Match any document in the 'users' collection
+    match /users/{userId} {
+      allow read: if isMaster() || userId == request.auth.uid || (isMentor() && resource.data.mentorId == request.auth.uid);
+      allow write: if isMaster();
+      allow create: if isMentor() && request.resource.data.role == 'mahasiswa' && request.resource.data.mentorId == request.auth.uid;
+      allow update, delete: if isMentor() && resource.data.role == 'mahasiswa' && resource.data.mentorId == request.auth.uid;
+      allow update: if userId == request.auth.uid && request.resource.data.role == resource.data.role;
+    }
+    
+    // Match any document in the 'evaluations' collection
+    match /evaluations/{evalId} {
+      allow read, delete: if isMaster() || isMentor() || (isAuthenticated() && resource.data.mahasiswaId == request.auth.uid);
+      allow create, update: if isMentor() && request.resource.data.mentorId == request.auth.uid;
+    }
+
+    // Match any document in the 'attendance' collection
+    match /attendance/{attId} {
+      allow read, delete: if isMaster() || isMentor() || (isAuthenticated() && resource.data.mahasiswaId == request.auth.uid);
+      allow create, update: if isMentor() && request.resource.data.mentorId == request.auth.uid;
+    }
+  }
+}
